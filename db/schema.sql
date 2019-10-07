@@ -4,7 +4,7 @@ CREATE DATABASE cakes_db;
 
 USE cakes_db;
 
-CREATE TABLE cake (
+CREATE TABLE cakes (
     id INT NOT NULL AUTO_INCREMENT,
     cake_name VARCHAR(100),
     devoured BOOLEAN DEFAULT FALSE,
