@@ -29,22 +29,28 @@ var orm = {
         })
     },
     // updateOne()
-    updateOne: function(cb) {
+    updateOne: function(table, val, condition, cb) {
         // generate query string
-
+        var queryString = "UPDATE '" + table + "' SET " + val + " WHERE " + condition;
         // connect
-
-        // callback value
-        cb();
+        connection.query(queryString, function(err, res) {
+            // error handling
+            if (err) throw err;
+            // callback value
+            cb(res);
+        })
     },
     // deleteOne()
-    deleteOne: function(cb) {
+    deleteOne: function(table, condition, cb) {
         // generate query string
-
+        var queryString = "DELETE FROM " + table + " WHERE " + condition;
         // connect
-
-        // callback value
-        cb();
+        connection.query(queryString, function(err, res) {
+            // error handling
+            if (err) throw err;
+            // callback value
+            cb(res);
+        })
     }
 };
 
