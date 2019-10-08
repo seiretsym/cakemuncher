@@ -4,13 +4,17 @@ var connection = require("./connection.js");
 // create orm
 var orm = {
     // selectAll()
-    selectAll: function(cb) {
+    selectAll: function(table, cb) {
         // generate query string
-
+        var queryString = "SELECT * FROM " + table + ";";
         // connect
-
-        // callback value
-        cb();
+        connection.query(queryString, function(err, res) {
+            // error handling
+            if (err) throw err;
+            // callback value
+            cb(res);
+        })
+        
     },
     // insertOne()
     insertOne: function(cb) {
