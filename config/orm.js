@@ -4,20 +4,40 @@ var connection = require("./connection.js");
 // create orm
 var orm = {
     // selectAll()
-    selectAll: function() {
+    selectAll: function(cb) {
+        // generate query string
 
+        // connect
+
+        // callback value
+        cb();
     },
     // insertOne()
-    insertOne: function() {
+    insertOne: function(cb) {
+        // generate query string
 
+        // connect
+
+        // callback value
+        cb();
     },
     // updateOne()
-    updateOne: function() {
+    updateOne: function(cb) {
+        // generate query string
 
+        // connect
+
+        // callback value
+        cb();
     },
     // deleteOne()
-    deleteOne: function() {
+    deleteOne: function(cb) {
+        // generate query string
 
+        // connect
+
+        // callback value
+        cb();
     }
 };
 
