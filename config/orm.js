@@ -17,13 +17,16 @@ var orm = {
         
     },
     // insertOne()
-    insertOne: function(cb) {
+    insertOne: function(table, name, bool, cb) {
         // generate query string
-
+        var queryString = "INSERT INTO " + table + " (cake_name, devoured) VALUES (?, ?)"
         // connect
-
-        // callback value
-        cb();
+        connection.query(queryString, [name, bool], function(err, res) {
+            // error handling
+            if (err) throw err;
+            // callback value
+            cb(res);
+        })
     },
     // updateOne()
     updateOne: function(cb) {
