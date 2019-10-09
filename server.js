@@ -6,26 +6,26 @@ var cakehbs = require("express-handlebars");
 var PORT = process.env.PORT || 3377; // D E R P! :D
 
 // create host variable
-var cake = express();
+var cakeExpress = express();
 
 // set dir path for assets/views
-cake.use(express.static("public"));
+cakeExpress.use(express.static("public"));
 
 // parse config
-cake.use(express.urlencoded({ extended: true }));
-cake.use(express.json());
+cakeExpress.use(express.urlencoded({ extended: true }));
+cakeExpress.use(express.json());
 
 // handlebar/views config
-cake.engine("handlebars", cakehbs({ defaultLayout: "main" }));
-cake.set("view engine", "handlebars");
+cakeExpress.engine("handlebars", cakehbs({ defaultLayout: "main" }));
+cakeExpress.set("view engine", "handlebars");
 
 // import cake routes
-var routes = require("./controllers/cakes_controllers.js");
+var routes = require("./controllers/cakes_controller.js");
 
-cake.use(routes);
+cakeExpress.use(routes);
 
 // start hosting!
-cake.listen(PORT, function() {
+cakeExpress.listen(PORT, function() {
   // tell me i'm doing it right
   console.log("Cakes hosted on: http://localhost:" + PORT);
 });
