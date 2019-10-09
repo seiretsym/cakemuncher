@@ -6,7 +6,7 @@ $(function() {
 
         // post!
         $.ajax({
-            url: "/api/cakes",
+            url: "/api/cakes/",
             type: "POST",
             data: { cake_name: $("#cake").val().trim() }
         }).then(function() {
@@ -22,7 +22,7 @@ $(function() {
         
         // put!
         $.ajax({
-            url: "/api/cakes" + $(this).data("id"),
+            url: "/api/cakes/" + $(this).data("id"),
             type: "PUT"
         }).then(function() {
             // reload page
@@ -37,7 +37,7 @@ $(function() {
 
         // delete!
         $.ajax({
-            url: "/api/cakes" + $(this).data("id"),
+            url: "/api/cakes/" + $(this).data("id"),
             type: "DELETE"
         }).then(function() {
             // reload page

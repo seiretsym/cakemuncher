@@ -31,7 +31,7 @@ var orm = {
     // updateOne()
     updateOne: function(table, val, condition, cb) {
         // generate query string
-        var queryString = "UPDATE '" + table + "' SET " + val + " WHERE " + condition;
+        var queryString = "UPDATE " + table + " SET " + val + " WHERE " + condition;
         // connect
         connection.query(queryString, function(err, res) {
             // error handling

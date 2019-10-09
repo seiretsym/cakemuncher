@@ -15,9 +15,12 @@ cakes.get("/", function(req, res) {
 });
 
 // insert
-cakes.post("/api/cakes", function(req) {
+cakes.post("/api/cakes", function(req, res) {
     // use cake.insert(name, bool, cb)
-    cake.insert(req.body.data);
+    cake.insert(req.body.data, function() {
+        // thumbs-up!
+        res.status(200).end();
+    });
 });
 
 // update
@@ -27,7 +30,12 @@ cakes.put("/api/cakes/:id", function(req, res) {
     // use cake.update(val, condition, cb)
     cake.update("FALSE", condition, function(data) {
         // check if a row was modified
-
+        if (data.changedRows === 0) {
+            // return 404 because condition wasn't found
+            return res.status(404).end();
+        }
+        // all okay!
+        res.status(200).end();
     })
 });
 
@@ -38,7 +46,12 @@ cakes.delete("/api/cakes/:id", function(req, res) {
     // use cake.delete(condition, cb)
     cake.delete(condition, function(data) {
         // check if a row was deleted
-
+        if (data.affectedRows === 0) {
+            // return 404 because condition wasn't found
+            return res.status(404).end();
+        }
+        // oh yeah!
+        res.status(200).end();
     })
 });
 
