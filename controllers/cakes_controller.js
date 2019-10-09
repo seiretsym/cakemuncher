@@ -25,10 +25,8 @@ cakes.post("/api/cakes", function(req, res) {
 
 // update
 cakes.put("/api/cakes/:id", function(req, res) {
-    // create condition
-    var condition = "id = " + req.params.id;
-    // use cake.update(val, condition, cb)
-    cake.update("FALSE", condition, function(data) {
+    // use cake.update(val, id, cb)
+    cake.update(true, req.params.id, function(data) {
         // check if a row was modified
         if (data.changedRows === 0) {
             // return 404 because condition wasn't found

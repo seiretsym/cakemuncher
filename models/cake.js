@@ -19,9 +19,9 @@ var cake = {
         })
     },
     // update!
-    update: function(val, condition, cb) {
+    update: function(val, id, cb) {
         // use orm.updateOne(table, val, condition, cb)
-        orm.updateOne("cakes", val, condition, function(res) {
+        orm.updateOne("cakes", val, id, function(res) {
             // callback value
             cb(res);
         })

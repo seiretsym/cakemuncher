@@ -29,11 +29,11 @@ var orm = {
         })
     },
     // updateOne()
-    updateOne: function(table, val, condition, cb) {
+    updateOne: function(table, val, id, cb) {
         // generate query string
-        var queryString = "UPDATE " + table + " SET devoured=" + val + " WHERE " + condition;
+        var queryString = "UPDATE " + table + " SET ? " + " WHERE ?";
         // connect
-        connection.query(queryString, function(err, res) {
+        connection.query(queryString, [{devoured: val}, {id: id}], function(err, res) {
             // error handling
             if (err) throw err;
             // callback value
