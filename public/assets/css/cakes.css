@@ -62,7 +62,8 @@ body {
 /* get rid of that damn bootstrap button outline */
 
 .btn:focus,
-.btn:active {
+.btn:active,
+textarea {
     outline: none !important;
     box-shadow: none !important;
 }

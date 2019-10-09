@@ -1,6 +1,7 @@
 // dependencies
 var express = require("express");
 var cakehbs = require("express-handlebars");
+var bodyParser = require("body-parser");
 
 // hosting properties
 var PORT = process.env.PORT || 3377; // D E R P! :D
@@ -8,12 +9,12 @@ var PORT = process.env.PORT || 3377; // D E R P! :D
 // create host variable
 var cakeExpress = express();
 
-// set dir path for assets/views
+// set dir path for assets
 cakeExpress.use(express.static("public"));
 
 // parse config
-cakeExpress.use(express.urlencoded({ extended: true }));
-cakeExpress.use(express.json());
+cakeExpress.use(bodyParser.urlencoded({ extended: true }));
+cakeExpress.use(bodyParser.json());
 
 // handlebar/views config
 cakeExpress.engine("handlebars", cakehbs({ defaultLayout: "main" }));

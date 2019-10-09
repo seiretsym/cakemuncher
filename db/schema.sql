@@ -9,4 +9,4 @@ CREATE TABLE cakes (
     cake_name VARCHAR(100),
     devoured BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (id)
-)
+);
