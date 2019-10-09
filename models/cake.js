@@ -25,10 +25,16 @@ var cake = {
             // callback value
             cb(res);
         })
-    }
+    },
     // delete!
+    delete: function(condition, cb) {
         // use orm.deleteOne(table, condition, cb)
-}
+        orm.deleteOne("cakes", condition, function(res) {
+            // callback value
+            cb(res);
+        })
+    }
+};
 
 // export!
 module.exports = cake;
