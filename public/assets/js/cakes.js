@@ -7,7 +7,7 @@ $(".add").on("click", function(event) {
 });
 
 // on click listener for eat
-$(".eat").on("click", function(event) {
+$("#eat").on("click", function(event) {
     event.preventDefault();
     
     console.log("Eat button clicked!")
