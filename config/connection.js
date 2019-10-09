@@ -1,22 +1,20 @@
 // dependencies
 var mysql = require("mysql");
 
-var connection = mysql.createConnection({
+var pool = mysql.createPool({
     host: "us-cdbr-iron-east-05.cleardb.net",
-    user: "b7480000637524",
-    password: "74b892d8",
-    database: "heroku_90b9773e800c8ea"
+    user: "b557827e8ecf47",
+    password: "0942987c",
+    database: "heroku_94f12b839305f34"
 })
 
-// connect!
-connection.connect(function(err) {
-    if (err) {
-        console.log("Connection Derped: " + err.stack)
-        return;
-    }
+pool.on("acquire", function(connection) {
+    console.log("Connected as Derp #" + connection.threadId);
+});
 
-    console.log("Connected as Derp# " + connection.threadId);
-})
+pool.on("release", function(connection) {
+    console.log("Connection released from Derp #" + connection.threadId);
+});
 
 // export!
-module.exports = connection;
+module.exports = pool;

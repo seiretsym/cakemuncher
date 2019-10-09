@@ -1,5 +1,5 @@
 // dependencies
-var connection = require("./connection.js");
+var pool = require("./connection.js");
 
 // create orm
 var orm = {
@@ -8,48 +8,75 @@ var orm = {
         // generate query string
         var queryString = "SELECT * FROM " + table + ";";
         // connect
-        connection.query(queryString, function(err, res) {
-            // error handling
-            if (err) throw err;
-            // callback value
-            cb(res);
-        })
-        
+        pool.getConnection(function(err, connection) {
+            // query
+            connection.query(queryString, function(err, res) {
+                // error handling
+                if (err) {
+                    throw err;
+                }
+                // callback value
+                cb(res);
+                // release connection
+                connection.release();
+            });
+        });
     },
     // insertOne()
     insertOne: function(table, name, cb) {
         // generate query string
         var queryString = "INSERT INTO " + table + " (cake_name) VALUES ('" + name + "')"
         // connect
-        connection.query(queryString, function(err, res) {
-            // error handling
-            if (err) throw err;
-            // callback value
-            cb(res);
-        })
+        pool.getConnection(function(err, connection) {
+            // query
+            connection.query(queryString, function(err, res) {
+                // error handling
+                if (err) {
+                    throw err;
+                }
+                // callback value
+                cb(res);
+                // release connection
+                connection.release();
+            });
+        });
     },
     // updateOne()
     updateOne: function(table, val, id, cb) {
         // generate query string
         var queryString = "UPDATE " + table + " SET ? " + " WHERE ?";
         // connect
-        connection.query(queryString, [{devoured: val}, {id: id}], function(err, res) {
-            // error handling
-            if (err) throw err;
-            // callback value
-            cb(res);
-        })
+        pool.getConnection(function(err, connection) {
+            // query
+            connection.query(queryString, [{devoured: val}, {id: id}], function(err, res) {
+                // error handling
+                if (err) {
+                    throw err;
+                }
+                // callback value
+                cb(res);
+                // release connection
+                connection.release();
+            });
+        });
     },
     // deleteOne()
     deleteOne: function(table, condition, cb) {
         // generate query string
         var queryString = "DELETE FROM " + table + " WHERE " + condition;
         // connect
-        connection.query(queryString, function(err, res) {
-            // error handling
-            if (err) throw err;
-            // callback value
-            cb(res);
+        pool.getConnection(function(err, connection) {
+            // query
+            connection.query(queryString, function(err, res) {
+                // error handling
+                if (err) {
+                    throw err;
+                }
+                // callback value
+                cb(res);
+                // release connection
+                connection.release();
+            })
         })
     }
 };
