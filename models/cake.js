@@ -19,8 +19,13 @@ var cake = {
         })
     },
     // update!
+    update: function(val, condition, cb) {
         // use orm.updateOne(table, val, condition, cb)
-
+        orm.updateOne("cakes", val, condition, function(res) {
+            // callback value
+            cb(res);
+        })
+    }
     // delete!
         // use orm.deleteOne(table, condition, cb)
 }
