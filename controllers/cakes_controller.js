@@ -17,7 +17,7 @@ cakes.get("/", function(req, res) {
 // insert
 cakes.post("/api/cakes", function(req, res) {
     // use cake.insert(name, bool, cb)
-    cake.insert(req.body.data, function() {
+    cake.insert(req.body.cake_name, function() {
         // thumbs-up!
         res.status(200).end();
     });

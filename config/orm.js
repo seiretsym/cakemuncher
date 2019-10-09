@@ -19,9 +19,9 @@ var orm = {
     // insertOne()
     insertOne: function(table, name, cb) {
         // generate query string
-        var queryString = "INSERT INTO " + table + " (cake_name) VALUES (?)"
+        var queryString = "INSERT INTO " + table + " (cake_name) VALUES ('" + name + "')"
         // connect
-        connection.query(queryString, name, function(err, res) {
+        connection.query(queryString, function(err, res) {
             // error handling
             if (err) throw err;
             // callback value
@@ -31,7 +31,7 @@ var orm = {
     // updateOne()
     updateOne: function(table, val, condition, cb) {
         // generate query string
-        var queryString = "UPDATE " + table + " SET " + val + " WHERE " + condition;
+        var queryString = "UPDATE " + table + " SET devoured=" + val + " WHERE " + condition;
         // connect
         connection.query(queryString, function(err, res) {
             // error handling
