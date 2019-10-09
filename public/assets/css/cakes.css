@@ -59,6 +59,14 @@ body {
     border-radius: 10px !important;
 }
 
+/* get rid of that damn bootstrap button outline */
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 /* a overrides */
 a,
 a:hover {
