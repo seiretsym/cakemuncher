@@ -81,7 +81,9 @@ var cake = {
             cb(res);
         })
     },
-
+```
+Using pools to close connections after data is retrieved
+```
 // in orm.js:
 var orm = {
     // selectAll()
@@ -89,13 +91,19 @@ var orm = {
         // generate query string
         var queryString = "SELECT * FROM " + table + ";";
         // connect
-        connection.query(queryString, function(err, res) {
-            // error handling
-            if (err) throw err;
-            // callback value
-            cb(res);
-        })
-        
+        pool.getConnection(function(err, connection) {
+            // query
+            connection.query(queryString, function(err, res) {
+                // error handling
+                if (err) {
+                    throw err;
+                }
+                // callback value
+                cb(res);
+                // release connection
+                connection.release();
+            });
+        });
     },
 ```
 ## Links
