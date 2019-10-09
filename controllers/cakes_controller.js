@@ -9,7 +9,8 @@ var cakes = express.Router();
 cakes.get("/", function(req, res) {
     // use cake.all(cb)
     cake.all(function(data) {
-        // get back to this after you create handlebars
+        // show that index page!
+        res.render("index", { cakes: data })
     })
 });
 
