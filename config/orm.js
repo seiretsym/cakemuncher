@@ -17,11 +17,11 @@ var orm = {
         
     },
     // insertOne()
-    insertOne: function(table, name, bool, cb) {
+    insertOne: function(table, name, cb) {
         // generate query string
-        var queryString = "INSERT INTO " + table + " (cake_name, devoured) VALUES (?, ?)"
+        var queryString = "INSERT INTO " + table + " (cake_name) VALUES (?)"
         // connect
-        connection.query(queryString, [name, bool], function(err, res) {
+        connection.query(queryString, name, function(err, res) {
             // error handling
             if (err) throw err;
             // callback value

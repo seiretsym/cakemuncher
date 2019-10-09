@@ -11,9 +11,9 @@ var cake = {
         })
     },
     // insert!
-    insert: function(name, bool, cb) {
-        // use orm.insertOne(table, name, bool, cb)
-        orm.insertOne("cakes", name, bool, function(res) {
+    insert: function(name, cb) {
+        // use orm.insertOne(table, name, cb)
+        orm.insertOne("cakes", name, function(res) {
             // callback value
             cb(res);
         })
