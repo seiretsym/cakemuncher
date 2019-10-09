@@ -1,0 +1,105 @@
+body {
+    background-color: #FC7FB2;
+    color: #45454D;
+}
+
+.jumbotron,
+.card {
+    background-color: #FFF1E9;
+    border-radius: 10px;
+    color: #FC7FB2;
+    border-color: #FFD5D5;
+}
+
+* {
+    border-color: #FFD5D5;
+}
+
+/* scrollbar customization */
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #FFD5D5; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #FFD5D5; 
+}
+
+/* custom btn colors */
+.btn-outline-cake {
+    color: #FFF1E9;
+    border-color: #FC7FB2;
+}
+
+.btn-cake {
+    color: #FFF1E9;
+    background-color: #FC7FB2;
+    border-color: #FFD5D5;
+}
+
+.btn-cake:hover {
+    color: #FC7FB2;
+    border-color: #FC7FB2;
+    background-color: #FFF1E9;
+}
+
+.btn {
+    border-radius: 10px !important;
+}
+
+/* a overrides */
+a,
+a:hover {
+    color: inherit;
+}
+
+/* border override */
+.border {
+    border: 1px solid #FFD5D5 !important;
+    border-radius: 10px !important;
+}
+
+/* custom col-md spacer */
+.col-md-space {
+    width: 0px;
+    margin: 0px 10px;
+}
+
+/* list-group-item override */
+.list-group-item {
+    border-radius: 10px !important;
+    border-color: #FC7FB2;
+    background-color: #FFD5D5;
+    margin-bottom: 20px;
+}
+
+.bg-cake {
+    background-color: #FFF1E9;
+}
+
+textarea {
+    border-radius: 10px;
+    resize: none;
+    width: 100%;
+}
+
+#add {
+    width:
+}
+
+/* custom font color */
+.text-cake {
+    color: #FC7FB2;
+}
