@@ -15,21 +15,31 @@ cakes.get("/", function(req, res) {
 });
 
 // insert
-cakes.post("/api/cakes", function(req, res) {
+cakes.post("/api/cakes", function(req) {
     // use cake.insert(name, bool, cb)
-
+    cake.insert(req.body.data);
 });
 
 // update
 cakes.put("/api/cakes/:id", function(req, res) {
+    // create condition
+    var condition = "id = " + req.params.id;
     // use cake.update(val, condition, cb)
+    cake.update("FALSE", condition, function(data) {
+        // check if a row was modified
 
+    })
 });
 
 // delete
 cakes.delete("/api/cakes/:id", function(req, res) {
+    // create condition
+    var condition = "id = " + req.params.id;
     // use cake.delete(condition, cb)
+    cake.delete(condition, function(data) {
+        // check if a row was deleted
 
+    })
 });
 
 // export
