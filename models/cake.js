@@ -7,12 +7,17 @@ var cake = {
         // use orm.selectAll(table, cb)
         orm.selectAll("cakes", function(res) {
             // callback value
-            cb(res)
+            cb(res);
         })
-    }
+    },
     // insert!
+    insert: function(name, bool, cb) {
         // use orm.insertOne(table, name, bool, cb)
-
+        orm.insertOne("cakes", name, bool, function(res) {
+            // callback value
+            cb(res);
+        })
+    },
     // update!
         // use orm.updateOne(table, val, condition, cb)
 
