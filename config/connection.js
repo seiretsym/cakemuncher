@@ -6,7 +6,7 @@ var pool = mysql.createPool({
     port: 3306,
     user: "root",
     password: "derp",
-    database: "heroku_94f12b839305f34"
+    database: "cakes_db"
 })
 
 pool.on("acquire", function(connection) {
