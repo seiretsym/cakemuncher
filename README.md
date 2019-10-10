@@ -32,6 +32,7 @@ A site made with Handlebars. It fetches data from a database to display informat
 ## Learning Experience
 - Learned to make a site with Handlebars
 - Learned to setup a Database on Heroku
+- Learned to create/release connection pools for MySQL
 
 ## Screenshots
 ![Cake Muncher](readme.PNG)
