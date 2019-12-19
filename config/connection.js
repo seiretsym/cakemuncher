@@ -2,11 +2,11 @@
 var mysql = require("mysql");
 
 var pool = mysql.createPool({
-    host: "us-cdbr-iron-east-05.cleardb.net",
+    host: process.env.CLEARDB_HOST,
     port: 3306,
-    user: "b557827e8ecf47",
-    password: "0942987c",
-    database: "heroku_94f12b839305f34"
+    user: process.env.CLEARDB_USERNAME,
+    password: process.env.CLEARDB_PW,
+    database: process.env.CLEARDB_DB
 })
 
 pool.on("acquire", function (connection) {
