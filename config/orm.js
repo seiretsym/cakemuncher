@@ -9,21 +9,21 @@ var orm = {
         var queryString = "SELECT * FROM " + table + ";";
         // connect
         pool.getConnection(function (err, connection) {
-            console.log("connection: ")
-            console.log(connection)
-            console.log("err: ")
-            console.log(err);
-            // query
-            connection.query(queryString, function (err, res) {
-                // error handling
-                if (err) {
-                    throw err;
-                }
-                // callback value
-                cb(res);
-                // release connection
-                connection.release();
-            });
+            if (err) {
+                console.log(err);
+            } else {
+                // query
+                connection.query(queryString, function (err, res) {
+                    // error handling
+                    if (err) {
+                        throw err;
+                    }
+                    // callback value
+                    cb(res);
+                    // release connection
+                    connection.release();
+                });
+            }
         });
     },
     // insertOne()
@@ -32,17 +32,21 @@ var orm = {
         var queryString = "INSERT INTO " + table + " (cake_name) VALUES ('" + name + "')"
         // connect
         pool.getConnection(function (err, connection) {
-            // query
-            connection.query(queryString, function (err, res) {
-                // error handling
-                if (err) {
-                    throw err;
-                }
-                // callback value
-                cb(res);
-                // release connection
-                connection.release();
-            });
+            if (err) {
+                console.log(err)
+            } else {
+                // query
+                connection.query(queryString, function (err, res) {
+                    // error handling
+                    if (err) {
+                        throw err;
+                    }
+                    // callback value
+                    cb(res);
+                    // release connection
+                    connection.release();
+                });
+            }
         });
     },
     // updateOne()
@@ -51,17 +55,21 @@ var orm = {
         var queryString = "UPDATE " + table + " SET ? " + " WHERE ?";
         // connect
         pool.getConnection(function (err, connection) {
-            // query
-            connection.query(queryString, [{ devoured: val }, { id: id }], function (err, res) {
-                // error handling
-                if (err) {
-                    throw err;
-                }
-                // callback value
-                cb(res);
-                // release connection
-                connection.release();
-            });
+            if (err) {
+                console.log(err);
+            } else {
+                // query
+                connection.query(queryString, [{ devoured: val }, { id: id }], function (err, res) {
+                    // error handling
+                    if (err) {
+                        throw err;
+                    }
+                    // callback value
+                    cb(res);
+                    // release connection
+                    connection.release();
+                });
+            };
         });
     },
     // deleteOne()
@@ -70,17 +78,21 @@ var orm = {
         var queryString = "DELETE FROM " + table + " WHERE " + condition;
         // connect
         pool.getConnection(function (err, connection) {
-            // query
-            connection.query(queryString, function (err, res) {
-                // error handling
-                if (err) {
-                    throw err;
-                }
-                // callback value
-                cb(res);
-                // release connection
-                connection.release();
-            })
+            if (err) {
+                console.log(err);
+            } else {
+                // query
+                connection.query(queryString, function (err, res) {
+                    // error handling
+                    if (err) {
+                        throw err;
+                    }
+                    // callback value
+                    cb(res);
+                    // release connection
+                    connection.release();
+                })
+            };
         })
     }
 };
