@@ -8,61 +8,67 @@
     {{!-- title for grids --}}
     <div class="row m-0">
         {{!-- to eat --}}
-        <div class="col-md border p-3 mb-3 bg-cake text-center">
-            <h4 class="text-cake p-0 m-0">Cakes To Eat</h4>
-        </div>
-        {{!-- spacer --}}
-        <div class="col-md-space"></div>
-        {{!-- eaten  --}}
-        <div class="col-md border p-3 mb-3 bg-cake text-center">
-            <h4 class="text-cake p-0 m-0">Cakes Eaten</h4>
-        </div>
-    </div>
-    {{!-- grid for cakes to devour --}}
-    <div class="row m-0">
-        {{!-- display for cakes to be devoured --}}
-        <div class="col-md border p-3 bg-cake" style="height: 365px">
-            <div class="card overflow-auto" style="height: 330px">
-                <div class="card-body text-center">
-                    <ul class="list-group">
-                        {{#each cakes}}
-                            {{#unless devoured}}
-                                <li class="list-group-item">
-                                    <h5 class="cake-title">{{cake_name}}</h5>
-                                    <p class="cake-text">It's delicious. Eat it.</p>
-                                    <button class="btn btn-cake btn-outline-cake eat" data-id="{{id}}">Eat</button>
-                                    <button class="btn btn-cake btn-outline-cake delete" data-id="{{id}}">Throw Away</button>
-                                </li>
-                            {{/unless}}
-                        {{/each}}
-                    </ul>
+        <div class="col-md p-0 m-0 mb-3">
+            <div class="row m-0">
+                <div class="col-md border p-3 mb-3 bg-cake text-center">
+                    <h4 class="text-cake p-0 m-0">Cakes To Eat</h4>
+                </div>
+            </div>
+            <div class="row m-0">
+            {{!-- display for cakes to be devoured --}}
+                <div class="col-md border p-3 bg-cake" style="height: 365px">
+                    <div class="card overflow-auto" style="height: 330px">
+                        <div class="card-body text-center">
+                            <ul class="list-group">
+                                {{#each cakes}}
+                                    {{#unless devoured}}
+                                        <li class="list-group-item">
+                                            <h5 class="cake-title">{{cake_name}}</h5>
+                                            <p class="cake-text">It's delicious. Eat it.</p>
+                                            <button class="btn btn-cake btn-outline-cake eat" data-id="{{id}}">Eat</button>
+                                            <button class="btn btn-cake btn-outline-cake delete" data-id="{{id}}">Throw Away</button>
+                                        </li>
+                                    {{/unless}}
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         {{!-- spacer --}}
         <div class="col-md-space"></div>
-        {{!-- display for cakes devoured --}}
-        <div class="col-md border p-3 bg-cake" style="height: 365px">
-            <div class="card overflow-auto" style="height: 330px">
-                <div class="card-body text-center">
-                    <ul class="list-group">
-                        {{#each cakes}}
-                            {{#if devoured}}
-                                <li class="list-group-item">
-                                    <h5 class="cake-title">{{cake_name}}</h5>
-                                    <p class="cake-text">How was it?</p>
-                                    <button class="btn btn-cake btn-outline-cake delete" data-id="{{id}}">Delicious!</button>
-                                </li>
-                            {{/if}}
-                        {{/each}}
-                    </ul>
+        {{!-- eaten  --}}
+        <div class="col-md m-0 p-0 mb-3">
+            <div class="row m-0">
+                <div class="col-md col-md border p-3 mb-3 bg-cake text-center">
+                    <h4 class="text-cake p-0 m-0">Cakes Eaten</h4>
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-md border p-3 bg-cake" style="height: 365px">
+                    <div class="card overflow-auto" style="height: 330px">
+                        <div class="card-body text-center">
+                            <ul class="list-group">
+                                {{#each cakes}}
+                                    {{#if devoured}}
+                                        <li class="list-group-item">
+                                            <h5 class="cake-title">{{cake_name}}</h5>
+                                            <p class="cake-text">How was it?</p>
+                                            <button class="btn btn-cake btn-outline-cake delete" data-id="{{id}}">Delicious!</button>
+                                        </li>
+                                    {{/if}}
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     {{!-- add a cake here --}}
-    <div class="jumbotron mb-2 mt-3 text-center p-4">
+    <div class="jumbotron mb-2 text-center p-4">
         <label class="font-weight-bold">Add a Cake:</label>
         <textarea id="cake" rows="3"></textarea><br>
         <button id="add" class="btn btn-cake btn-outline-cake">Eat Later</button>
